@@ -18,7 +18,7 @@ class XWS
     a = []
 
     node.each_recursive do |x|
-      puts 'x : ' + x.inspect 
+
       if not x.name[/#{@ignore_elements.join('|')}/] then
         a += x.texts.map(&:strip).select{|x| not x.empty?}
       end
@@ -36,7 +36,7 @@ class XWS
       gsub(/["']/,'').     # remove quotation marks
       gsub(/(\w)[^a-z ]+\B|\B[^a-z #]+(\w)/,'\1\2').     # remove non-alpabetical characters from start or beginning of words
       gsub(/\s.\s/,' ').      # remove single digits 
-      gsub(/\b#{@ignorewords.join('|')}\b/,'')
+      gsub(/\b(?:#{@ignorewords.join('|')})\b/,'')
     
   end
 
