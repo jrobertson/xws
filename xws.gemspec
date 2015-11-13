@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'xws'
-  s.version = '0.1.2'
+  s.version = '0.1.3'
   s.summary = 'XML Word Scanner (XWS) reads a Rexle document and returns a hash object containing each word found.'
   s.authors = ['James Robertson']
   s.files = Dir['lib/xws.rb']

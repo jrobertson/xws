@@ -35,9 +35,12 @@ class XWS
     s.downcase. 
       gsub(/\w+'\w+/,'').  # remove words containing an apostrophe
       gsub(/["']/,'').     # remove quotation marks
-      gsub(/(\w)[^a-z ]+\B|\B[^a-z #]+(\w)/,'\1\2').     # remove non-alpabetical characters from start or beginning of words
-      gsub(/\s.\s/,' ').      # remove single digits 
-      gsub(/\b(?:#{@ignorewords.join('|')})\b/,'')
+      gsub(/(\w)[^a-z ]+\B|\B[^a-z #]+(\w)/,'\1\2').     # remove 
+      #             non-alpabetical characters from start or beginning of words
+      gsub(/\s.\s/,' ').                              # remove single digits 
+      gsub(/\b(?:#{@ignorewords.join('|')})\b/,'').   # ignore common words
+      gsub(/\B[^\w#].*/,'')              # remove any other items which are 
+      #                                 not words or hashtags
     
   end
 
