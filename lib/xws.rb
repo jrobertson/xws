@@ -25,7 +25,8 @@ class XWS
     end
 
     words(a.join(' ')).split.group_by(&:to_s).\
-                               inject({}){|r, x| r.merge(x[0] => x[-1].length)}
+        inject({}){|r, x| r.merge(String.new(x[0]).\
+                                    force_encoding("utf-8") => x[-1].length)}
 
   end
 
