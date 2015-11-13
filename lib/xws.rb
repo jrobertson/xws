@@ -14,12 +14,11 @@ class XWS
   end
 
   def scan(node)
-    puts 'inside scan'
-    puts 'node : ' + node.xml.inspect
+
     a = []
 
     node.each_recursive do |x|
-      puts 'x : ' + x.inspect
+
       if not x.name[/#{@ignore_elements.join('|')}/] then
         a += x.texts.map(&:strip).select{|x| not x.empty?}
       end
